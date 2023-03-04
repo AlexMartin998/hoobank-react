@@ -1,23 +1,26 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { NavLinks } from '../../../../../shared';
 import { close, menu } from '../../../../../assets';
+import { NavLinks } from '../../../../../shared';
 
 interface MobileNavbarProps {
-  toggle: boolean;
   navLinks: NavLinks[];
-  setToggle: (value: React.SetStateAction<boolean>) => void;
+  // setToggle: (value: React.SetStateAction<boolean>) => void;
 }
 
-const MobileNavbar = ({ toggle, navLinks, setToggle }: MobileNavbarProps) => {
+const MobileNav = ({ navLinks }: MobileNavbarProps) => {
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <div className="sm:hidden flex flex-1 justify-end items-center">
+    <div className="flex flex-1 justify-end items-center">
       <img
         src={toggle ? close : menu}
         alt="menu"
         className="w-7 h-7 object-contain cursor-pointer"
         onClick={() => setToggle(prev => !prev)}
       />
+
       <div
         className={`${
           toggle ? 'flex' : 'hidden'
@@ -38,4 +41,4 @@ const MobileNavbar = ({ toggle, navLinks, setToggle }: MobileNavbarProps) => {
   );
 };
 
-export default MobileNavbar;
+export default MobileNav;

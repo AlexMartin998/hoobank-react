@@ -1,29 +1,21 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
 import { logo } from '../../../../../assets';
-import { navLinks } from '../../../../../shared';
-import MobileNavbar from './MobileNavbar';
+import { navLinks, useMediaQuery } from '../../../../../shared';
+
+import DesktopNav from './DesktopNav';
+import MobileNav from './MobileNavbar';
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 704px)');
 
   return (
     <nav className="w-full flex py-6 justify-between items-center navbar">
       <img src={logo} alt="hoobank" className="w-[124px] h-[32px]" />
 
-      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-        {navLinks.map(({ id, title }) => (
-          <li
-            key={id}
-            className={`font-poppins font-normal cursor-pointer text-[16px] text-white mr-10 last:mr-0`}
-          >
-            <Link to={id}>{title}</Link>
-          </li>
-        ))}
-      </ul>
-
-      <MobileNavbar {...{ toggle, navLinks, setToggle }} />
+      {!isMobile ? (
+        <DesktopNav navLinks={navLinks} />
+      ) : (
+        <MobileNav navLinks={navLinks} />
+      )}
     </nav>
   );
 };
