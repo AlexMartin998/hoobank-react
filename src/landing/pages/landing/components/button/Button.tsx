@@ -1,7 +1,5 @@
-import { AppStyles } from '../../../../../shared';
-
 interface ButtonProps {
-  styles: AppStyles;
+  styles: string;
 }
 
 const Button = ({ styles }: ButtonProps) => (

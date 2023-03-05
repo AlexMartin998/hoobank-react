@@ -1,5 +1,6 @@
 export { default as Billing } from './billing/Billing';
 export { default as Business } from './business/Business';
+export { default as FeatureCard } from './business/FeatureCard';
 export { default as Button } from './button/Button';
 export { default as CardDeal } from './cardDear/CardDeal';
 export { default as Clients } from './clients/Clients';
