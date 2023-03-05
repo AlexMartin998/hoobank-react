@@ -14,12 +14,12 @@ const MobileNav = ({ navLinks }: MobileNavbarProps) => {
 
   return (
     <div className="flex flex-1 justify-end items-center">
-      <img
-        src={toggle ? close : menu}
-        alt="menu"
+      <button
         className="w-7 h-7 object-contain cursor-pointer"
         onClick={() => setToggle(prev => !prev)}
-      />
+      >
+        <img src={toggle ? close : menu} alt="menu" />
+      </button>
 
       <div
         className={`${
