@@ -1,8 +1,8 @@
+# HooBank - Modern UI/UX website using React.js & Tailwind CSS
+
 <p align="center" >
  <img src="./.screenshot/logo-react-tailwind.png" width="200" alt="Nest Logo" />
 </p>
-
-# HooBank - Modern UI/UX website using React.js & Tailwind CSS
 
 ## Features
 

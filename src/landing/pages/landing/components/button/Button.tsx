@@ -1,5 +1,5 @@
 interface ButtonProps {
-  styles: string;
+  styles?: string;
 }
 
 const Button = ({ styles }: ButtonProps) => (
