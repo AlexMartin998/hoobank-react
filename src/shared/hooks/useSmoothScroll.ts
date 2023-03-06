@@ -1,16 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-type ScrollOptions = {
-  behavior?: 'auto' | 'smooth';
-  block?: 'start' | 'center' | 'end' | 'nearest';
-  inline?: 'start' | 'center' | 'end' | 'nearest';
-};
-
 type UseSmoothScroll = {
   activeNav: string;
   setActiveNav: (sectionId: string) => void;
-  scrollTo: (sectionId: string, options?: ScrollOptions) => void;
+  scrollTo: (sectionId: string) => void;
   setActiveClass: (hash: string) => string;
 };
 
@@ -19,13 +13,13 @@ export const useSmoothScroll = (): UseSmoothScroll => {
   const pathName = location.pathname.substring(1);
   const [activeNav, setActiveNav] = useState<string>(pathName || '');
 
-  const scrollTo = (sectionId: string, options?: ScrollOptions) => {
+  const scrollTo = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     section &&
       section.scrollIntoView({
-        behavior: options?.behavior || 'smooth',
-        block: options?.block || 'start',
-        inline: options?.inline || 'nearest',
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest',
       });
 
     setActiveNav(`${sectionId}`);
@@ -36,7 +30,9 @@ export const useSmoothScroll = (): UseSmoothScroll => {
 
   useEffect(() => {
     const section = document.getElementById(pathName);
-    section &&
+
+    pathName &&
+      section &&
       section.scrollIntoView({
         behavior: 'smooth',
         block: 'start',

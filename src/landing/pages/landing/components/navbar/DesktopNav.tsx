@@ -14,7 +14,7 @@ const DesktopNav = ({ navLinks }: DesktopNavProps) => {
       {navLinks.map(({ id, title }) => (
         <li
           key={id}
-          className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite mr-10 last:mr-0`}
+          className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite mr-10 last:mr-0 hover:text-white`}
         >
           <Link
             to={id}
