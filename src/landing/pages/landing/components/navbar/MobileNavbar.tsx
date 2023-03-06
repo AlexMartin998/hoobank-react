@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { close, menu } from '../../../../../assets';
-import { NavLinks } from '../../../../../shared';
+import { NavLinks, useSmoothScroll } from '../../../../../shared';
 
 interface MobileNavbarProps {
   navLinks: NavLinks[];
@@ -11,6 +11,12 @@ interface MobileNavbarProps {
 
 const MobileNav = ({ navLinks }: MobileNavbarProps) => {
   const [toggle, setToggle] = useState(false);
+  const { scrollTo, setActiveClass } = useSmoothScroll();
+
+  const handleNavClick = (id: string) => {
+    scrollTo(id);
+    setToggle(prev => !prev);
+  };
 
   return (
     <div className="flex flex-1 justify-end items-center">
@@ -30,9 +36,15 @@ const MobileNav = ({ navLinks }: MobileNavbarProps) => {
           {navLinks.map(({ id, title }) => (
             <li
               key={id}
-              className={`font-poppins font-normal cursor-pointer text-[16px] text-white mb-3 last:mb-0`}
+              className={`font-poppins font-normal cursor-pointer text-[16px] text-dimWhite mb-3 last:mb-0`}
             >
-              <Link to={id}>{title}</Link>
+              <Link
+                to={id}
+                onClick={() => handleNavClick(id)}
+                className={setActiveClass(id)}
+              >
+                {title}
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,6 +1,5 @@
 import { logo } from '../../../../../assets';
 import { navLinks, useMediaQuery } from '../../../../../shared';
-
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNavbar';
 

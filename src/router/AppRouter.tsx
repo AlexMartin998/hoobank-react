@@ -6,9 +6,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
-          <Route index element={<LandingPage />} />
-        </Route>
+        <Route path="*" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );

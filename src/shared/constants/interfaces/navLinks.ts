@@ -3,4 +3,4 @@ export interface NavLinks {
   title: string;
 }
 
-type NavLinksId = 'home' | 'features' | 'product' | 'clients';
+type NavLinksId = 'home' | 'features' | 'product' | 'clients' | '/';
